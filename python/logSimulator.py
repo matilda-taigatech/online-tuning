@@ -50,7 +50,7 @@ class LogTurner:
 
     def turn_log_one_frame(self, kP, kI, kD):
         signal = np.max([np.min([self.P*kP + self.I*kI + self.D*kD, self.maxSignal]), -self.maxSignal])
-        angularAcceleration = np.max([np.min([(signal/self.diameter - self.angularVelocity)/self.dt, self.maxAcc]), -self.maxAcc])
+        angularAcceleration = np.max([np.min([(signal/self.log.diameter - self.angularVelocity)/self.dt, self.maxAcc]), -self.maxAcc])
         self.angularVelocity += angularAcceleration*self.dt
         logEnded = self.log.turn(self.angularVelocity, self.dt, self.conveyorSpeed)
 
