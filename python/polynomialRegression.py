@@ -38,5 +38,5 @@ def blr(x, y, lamda, mu, max_deg, batch_size=0):
         betahat = beta_hat(X, np.array(y[i*batch_size:(i+1)*batch_size]))
         mu, lamda = posteriors(X, lamda, mu, betahat)
 
-    return mu
+    return mu, lamda
 
